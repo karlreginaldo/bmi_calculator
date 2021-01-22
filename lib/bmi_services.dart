@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 class BMIServices extends GetxController {
   double result = 0.00001;
   String category = 'NORMAL';
+  bool isHeightNull = false;
+  bool isWeightNull = false;
   compute(BMIModel model) {
     int height = int.parse(model.height.text);
     int weight = int.parse(model.weight.text);

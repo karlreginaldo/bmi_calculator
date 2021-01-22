@@ -10,133 +10,133 @@ class BMICalculator extends StatefulWidget {
 
 class _BMICalculatorState extends State<BMICalculator> {
   var model = BMIModel();
-  bool isHeightNull = false;
-  bool isWeightNull = false;
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        padding: EdgeInsets.all(30),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 50,
-            ),
-            ResultContainer(),
-            SizedBox(
-              height: 50,
-            ),
-            InputBox(
-              label: 'HEIGHT',
-              hint: 'CM(CENTIMETERS)',
-              controller: model.height,
-              isNull: isHeightNull,
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            InputBox(
-              label: 'WEIGHT',
-              hint: 'KG(KILOGRAMS)',
-              controller: model.weight,
-              isNull: isWeightNull,
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            ButtonBox(
-              onPressed: () {
-                setState(() {
-                  handler(
-                    model: model,
-                    isHeightNull: isHeightNull,
-                    isWeightNull: isWeightNull,
-                  );
-                });
-              },
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            Footer(),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
-class ResultContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<BMIServices>(
         init: BMIServices(),
         builder: (builder) {
-          return Container(
-            padding: EdgeInsets.all(20.0),
-            decoration: BoxDecoration(
-              color: Color(0xff828282),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(
-              children: [
-                Text(
-                  'B M I',
-                  style: TextStyle(fontSize: 25),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  Get.find<BMIServices>().result.toString().substring(0, 5),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 40,
-                    color: Color(0xff009DF5),
+          return SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.all(30),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 50,
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Divider(
-                  color: Colors.white,
-                  indent: 50,
-                  endIndent: 50,
-                  thickness: 2,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  'C A T E G O R Y',
-                  style: TextStyle(fontSize: 25),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  Get.find<BMIServices>().category,
-                  style: TextStyle(
-                    fontSize: 40,
-                    color: Color(0xff009DF5),
+                  ResultContainer(),
+                  SizedBox(
+                    height: 50,
                   ),
-                ),
-                (Get.find<BMIServices>().category != 'OBESITY')
-                    ? Text(
-                        'WEIGHT',
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Color(0xff009DF5),
-                        ),
-                      )
-                    : Text(''),
-              ],
+                  InputBox(
+                    label: 'HEIGHT',
+                    hint: 'CM(CENTIMETERS)',
+                    controller: model.height,
+                    isNull: Get.find<BMIServices>().isHeightNull,
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  InputBox(
+                    label: 'WEIGHT',
+                    hint: 'KG(KILOGRAMS)',
+                    controller: model.weight,
+                    isNull: Get.find<BMIServices>().isWeightNull,
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  ButtonBox(
+                    onPressed: () {
+                      setState(() {
+                        handler(
+                          model: model,
+                        );
+                        print(Get.find<BMIServices>().isHeightNull);
+                      });
+                    },
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Footer(),
+                ],
+              ),
             ),
           );
         });
   }
 }
 
+//Result Body
+class ResultContainer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20.0),
+      decoration: BoxDecoration(
+        color: Color(0xff828282),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        children: [
+          Text(
+            'B M I',
+            style: TextStyle(fontSize: 25),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            Get.find<BMIServices>().result.toString().substring(0, 5),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 40,
+              color: Color(0xff009DF5),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Divider(
+            color: Colors.white,
+            indent: 50,
+            endIndent: 50,
+            thickness: 2,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            'C A T E G O R Y',
+            style: TextStyle(fontSize: 25),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            Get.find<BMIServices>().category,
+            style: TextStyle(
+              fontSize: 40,
+              color: Color(0xff009DF5),
+            ),
+          ),
+          (Get.find<BMIServices>().category != 'OBESITY')
+              ? Text(
+                  'WEIGHT',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Color(0xff009DF5),
+                  ),
+                )
+              : Text(''),
+        ],
+      ),
+    );
+  }
+}
+
+//Text Field
 class InputBox extends StatelessWidget {
   final String label;
   final String hint;
@@ -247,21 +247,28 @@ showHistoryList() {
   );
 }
 
-handler({BMIModel model, bool isHeightNull, bool isWeightNull}) {
-  //TODO: Do some logic error of the text
+handler({BMIModel model}) {
   if (model.height.text.isEmpty && model.weight.text.isEmpty) {
-    print('Show Error Weight & Height');
+    print('Empty Bo');
+    Get.find<BMIServices>().isWeightNull = true;
+    Get.find<BMIServices>().isHeightNull = true;
   } else if (model.height.text.isNotEmpty && model.weight.text.isNotEmpty) {
-    print('Remove Error Weight & Height');
+    print('Not Empty Both');
+    Get.find<BMIServices>().isHeightNull = false;
+    Get.find<BMIServices>().isWeightNull = false;
     Get.find<BMIServices>().compute(model);
     Get.find<BMIServices>().compare();
-  } else if (model.weight.text.isEmpty) {
-    print('Show Error Weight');
-  } else if (model.height.text.isNotEmpty) {
-    print('Remove Error Height');
-  } else if (model.weight.text.isNotEmpty) {
-    print('Remove Error Weight');
   } else if (model.height.text.isEmpty) {
-    print('Show Error Height');
+    print('Empty Height');
+    Get.find<BMIServices>().isHeightNull = true;
+  } else if (model.weight.text.isEmpty) {
+    print('Empty Weight');
+    Get.find<BMIServices>().isWeightNull = true;
+  } else if (model.height.text.isNotEmpty) {
+    print('Not Empty Height');
+    Get.find<BMIServices>().isHeightNull = false;
+  } else if (model.weight.text.isNotEmpty) {
+    print('Not Empty Weight');
+    Get.find<BMIServices>().isWeightNull = false;
   }
 }
