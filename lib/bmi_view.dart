@@ -68,7 +68,7 @@ class _BMICalculatorState extends State<BMICalculator> {
   }
 }
 
-//Result Body
+//Result Body Codes
 class ResultContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -136,7 +136,7 @@ class ResultContainer extends StatelessWidget {
   }
 }
 
-//Text Field
+//Text Field Codes
 class InputBox extends StatelessWidget {
   final String label;
   final String hint;
