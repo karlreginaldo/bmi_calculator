@@ -1,7 +1,7 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqlite_api.dart';
 
-final String tableBMI = 'bmi';
+final String tableBMI = 'test3db';
 final String columnId = 'id';
 final String columnResult = 'result';
 final String columnCategory = 'category';
@@ -51,7 +51,7 @@ class BMIHelper {
         //int = integer
         //String = text
         //!null = not null
-        //DateTime is not a supported SQLite type. Personally I store them as int (millisSinceEpoch) or string (iso8601)
+        //DateTime is not a supported SQLite type. Personally You can store them as int (millisSinceEpoch) or string (iso8601)
         //bool is not a supported SQLite type. Use INTEGER and 0 and 1 values.
       },
     );

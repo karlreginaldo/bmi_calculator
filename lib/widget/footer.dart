@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:bmicalcu/bmi_services.dart';
 import 'bottomsheet.dart';
 
 class Footer extends StatelessWidget {
@@ -17,7 +17,10 @@ class Footer extends StatelessWidget {
               color: Color(0xff009DF5),
             ),
           ),
-          onPressed: showBottomSheet,
+          onPressed: () async {
+            await Get.find<BMIServices>().readData();
+            showBottomSheet();
+          },
         )
       ],
     );

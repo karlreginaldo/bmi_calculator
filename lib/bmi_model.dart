@@ -12,12 +12,13 @@ class BMIModel {
   BMIModel(
       {this.heightGet, this.weightGet, this.date, this.result, this.category});
 
-  Map<String, dynamic> getMap() {
+  //Soon!
+  /* getMap() {
     Map map = {
       'result': this.result,
       'category': this.category,
       'date': this.date
     };
     return map;
-  }
+  } */
 }

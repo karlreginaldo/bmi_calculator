@@ -39,7 +39,6 @@ class BottomSheetView extends StatelessWidget {
 
 //TODO: implement model method with array
 Expanded showHistoryList() {
-//TODO: Use Moor Database
   return Expanded(
     child: ListView.builder(
         itemCount: Get.find<BMIServices>().history.length,
@@ -50,18 +49,18 @@ Expanded showHistoryList() {
               title: Row(
                 children: [
                   Text(
-                    'WEIGHT:${Get.find<BMIServices>().history[index].category}',
+                    'WEIGHT:${Get.find<BMIServices>().history[index]['category']}',
                     style: GoogleFonts.deliusUnicase(),
                   ),
                 ],
               ),
               subtitle: Text(
-                '${Get.find<BMIServices>().history[index].result}',
+                '${Get.find<BMIServices>().history[index]['result']}',
                 style: GoogleFonts.deliusUnicase(color: Colors.blue),
                 textAlign: TextAlign.center,
               ),
               trailing: Text(
-                Get.find<BMIServices>().history[index].date,
+                Get.find<BMIServices>().history[index]['date'],
               ),
               isThreeLine: true,
             ),
