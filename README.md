@@ -1,8 +1,12 @@
 # BMI Calculator
 
 
-I created this bmi calculator for my personal project and practice coding(Hope you like it).
-
-
-
+I created this bmi calculator for my personal project and practice coding and for fun!(Hope you like it).
 -KarlReginaldo
+
+Sample:
+https://github.com/mikagura12/BMICalculator/blob/android/screenshotforReadme/1.png
+https://github.com/mikagura12/BMICalculator/blob/android/screenshotforReadme/2.png
+https://github.com/mikagura12/BMICalculator/blob/android/screenshotforReadme/3.png
+
+
