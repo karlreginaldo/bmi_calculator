@@ -1,7 +1,7 @@
 # BMI Calculator
 
 
-I created this bmi calculator for my personal project <br>and practice coding and for fun!(Hope you like it).
+I created this bmi calculator for my personal project <br>and practice coding and for fun!(Hope you like it).<br>with backend(sqflite)
 
 
 Screenshots:
