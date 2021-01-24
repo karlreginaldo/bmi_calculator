@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 
 class Testing extends StatefulWidget {
   @override
@@ -7,7 +6,6 @@ class Testing extends StatefulWidget {
 }
 
 class _TestingState extends State<Testing> {
-  Box studentsBox;
   var nameController = TextEditingController();
 
   @override

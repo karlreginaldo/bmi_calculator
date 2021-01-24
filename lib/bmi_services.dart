@@ -1,10 +1,7 @@
-import 'package:hive/hive.dart';
-
 import 'bmi_model.dart';
 import 'package:get/get.dart';
 
 class BMIServices extends GetxController {
-  Box historyBox = Hive.box('History');
   double result = 0.00001;
   String category = 'NORMAL';
   bool isHeightNull = false;
