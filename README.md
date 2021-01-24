@@ -5,8 +5,10 @@ I created this bmi calculator for my personal project and practice coding and fo
 -KarlReginaldo
 
 Sample:
-https://github.com/mikagura12/BMICalculator/blob/android/screenshotforReadme/1.png
-https://github.com/mikagura12/BMICalculator/blob/android/screenshotforReadme/2.png
-https://github.com/mikagura12/BMICalculator/blob/android/screenshotforReadme/3.png
+https://github.com/mikagura12/BMICalculator/blob/android/screenshotforReadme/1.png?raw=true
+https://github.com/mikagura12/BMICalculator/blob/android/screenshotforReadme/2.png?raw=true
+https://github.com/mikagura12/BMICalculator/blob/android/screenshotforReadme/3.png?raw=true
+
+
 
 
