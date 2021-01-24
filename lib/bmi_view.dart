@@ -71,10 +71,6 @@ class _BMICalculatorState extends State<BMICalculator> {
   }
 }
 
-//Result Body
-
-//Text Field
-
 showValidation() {
   return Get.snackbar(
     'You Get ${Get.find<BMIServices>().result.toString().substring(0, 5)}',
@@ -94,15 +90,19 @@ handler({BMIModel model}) {
     Get.find<BMIServices>().isWeightNull = false;
     Get.find<BMIServices>().compute(model);
     Get.find<BMIServices>().compare();
+    Get.find<BMIServices>().addArrayTesting(model: model);
     showValidation();
   } else if (model.height.text.isEmpty) {
     print('Empty Height');
     Get.find<BMIServices>().isHeightNull = true;
+    Get.find<BMIServices>().isWeightNull = false;
   } else if (model.weight.text.isEmpty) {
     print('Empty Weight');
     Get.find<BMIServices>().isWeightNull = true;
+    Get.find<BMIServices>().isHeightNull = false;
   } else if (model.height.text.isNotEmpty) {
     print('Not Empty Height');
+
     Get.find<BMIServices>().isHeightNull = false;
   } else if (model.weight.text.isNotEmpty) {
     print('Not Empty Weight');
