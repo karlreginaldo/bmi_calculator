@@ -1,7 +1,7 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqlite_api.dart';
 
-final String tableBMI = 'test3db';
+final String tableBMI = 'bmihistory';
 final String columnId = 'id';
 final String columnResult = 'result';
 final String columnCategory = 'category';
