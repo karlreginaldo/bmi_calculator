@@ -37,34 +37,31 @@ class BottomSheetView extends StatelessWidget {
   }
 }
 
-//TODO: implement model method with array
-Expanded showHistoryList() {
-  return Expanded(
-    child: ListView.builder(
-        itemCount: Get.find<BMIServices>().history.length,
-        reverse: true,
-        itemBuilder: (context, index) {
-          return Card(
-            child: ListTile(
-              title: Row(
-                children: [
-                  Text(
-                    'WEIGHT:${Get.find<BMIServices>().history[index]['category']}',
-                    style: GoogleFonts.deliusUnicase(),
-                  ),
-                ],
-              ),
-              subtitle: Text(
-                '${Get.find<BMIServices>().history[index]['result']}',
-                style: GoogleFonts.deliusUnicase(color: Colors.blue),
-                textAlign: TextAlign.center,
-              ),
-              trailing: Text(
-                Get.find<BMIServices>().history[index]['date'],
-              ),
-              isThreeLine: true,
+showHistoryList() {
+  return ListView.builder(
+      itemCount: Get.find<BMIServices>().history.length,
+      reverse: true,
+      itemBuilder: (context, index) {
+        return Card(
+          child: ListTile(
+            title: Row(
+              children: [
+                Text(
+                  'WEIGHT:${Get.find<BMIServices>().history[index]['category']}',
+                  style: GoogleFonts.deliusUnicase(),
+                ),
+              ],
             ),
-          );
-        }),
-  );
+            subtitle: Text(
+              '${Get.find<BMIServices>().history[index]['result']}',
+              style: GoogleFonts.deliusUnicase(color: Colors.blue),
+              textAlign: TextAlign.center,
+            ),
+            trailing: Text(
+              Get.find<BMIServices>().history[index]['date'],
+            ),
+            isThreeLine: true,
+          ),
+        );
+      });
 }
