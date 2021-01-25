@@ -11,11 +11,11 @@ Screenshots:
 <img src="screenshotforReadme/3.png" width="250">
 
 Package I Used:
-  <br>
+  <br> 
   google_fonts: ^1.1.1
   <br>
   get: ^3.24.0
   <br>
-  path_provider: ^1.6.27
+  path_provider: ^1.6.27 //this is not neccessary dart has its own dart:io package to locate the path of database
   <br>
   sqflite: ^1.3.2+2
