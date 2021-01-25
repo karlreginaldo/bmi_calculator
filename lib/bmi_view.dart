@@ -71,8 +71,8 @@ class _BMICalculatorState extends State<BMICalculator> {
   }
 }
 
-//I think it should be replaced in services(I feel my code is a little bit dirty and a mess)
-showValidation() {
+//Function:I think it should be replaced in services(I feel my code is a little bit dirty and a mess)
+void showValidation() {
   return Get.snackbar(
     'You Get ${Get.find<BMIServices>().result.toString().substring(0, 5)}',
     'You have succesfully add new BMI',
@@ -80,8 +80,8 @@ showValidation() {
   );
 }
 
-//Thist function shows the error if somewhere in the button is null and execute if all buttons was filled(this time I think that's the best way I can write)
-handler({BMIModel model}) {
+//Function:This function shows the error if somewhere in the button is null and execute if all buttons was filled(this time I think that's the best way I can write)
+void handler({BMIModel model}) {
   if (model.height.text.isEmpty && model.weight.text.isEmpty) {
     print('Empty Both');
     Get.find<BMIServices>().isWeightNull = true;

@@ -10,10 +10,12 @@ class BMIServices extends GetxController {
   bool isHeightNull = false;
   bool isWeightNull = false;
 
+  //Solving the give data to convert into BMI(result)
   double compute(BMIModel model) {
     //TODO:I will improve logic here (i feel something wrong with this function)
 
     print('Computing...');
+    //Converting String to integer
     int height = int.parse(model.height.text);
     int weight = int.parse(model.weight.text);
     result = (weight / ((height * height) * 0.0001));
@@ -21,7 +23,15 @@ class BMIServices extends GetxController {
     return result;
   }
 
+  //Comparing the result in the categories
   compare() {
+    /*BMI Categories:
+      Underweight = <18.5
+      Normal weight = 18.5–24.9
+      Overweight = 25–29.9
+      Obesity = BMI of 30 or greater 
+      Orig Formula: weight / height squared
+    */
     print('Comparing...');
 
     if (result < 18.5) {
@@ -44,12 +54,14 @@ class BMIServices extends GetxController {
     createData();
   }
 
+  //DateTime: Get the String Date(I think the return should be placed in variable "String date;")
   String getDateCreated() {
     DateTime dateCreatedUnformat = DateTime.now();
 
     return '${dateCreatedUnformat.month}/${dateCreatedUnformat.day}/${dateCreatedUnformat.year}';
   }
 
+  //Database: Inserting Data into sqlite
   createData() async {
     var db = await this.helper.database;
     print('Creating Data');
@@ -59,32 +71,10 @@ class BMIServices extends GetxController {
     ''');
   }
 
+  //Database: Extract Data into history
   readData() async {
     var db = await this.helper.database;
     print(await db.query(tableBMI));
     return history = await db.query(tableBMI);
   }
-
-  // This is only testing
-  /* addArrayTesting({model}) {
-    int height = int.parse(model.height.text);
-    int weight = int.parse(model.weight.text);
-    history.add(
-      BMIModel(
-        heightGet: height,
-        weightGet: weight,
-        date: getDateCreated(),
-        result: result,
-        category: category,
-      ),
-    );
-  } */
 }
-
-/* BMI Categories:
-Underweight = <18.5
-Normal weight = 18.5–24.9
-Overweight = 25–29.9
-Obesity = BMI of 30 or greater 
-Orig Formula: weight / height squared
-*/
